@@ -1,16 +1,48 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { AppComponent } from './app.component';
+import { CounterComponent } from './counter/counter.component';
+import { FetchDataComponent } from './fetchdata/fetchdata.component';
+import { NavMenuComponent } from './navmenu/navmenu.component';
+import { HomeComponent } from './home/home.component';
+import { SlideComponent } from './slide/slide.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule,
+        HttpModule,
+        FormsModule,
+        RouterModule.forRoot([
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: 'home', component: HomeComponent },
+            { path: 'counter', component: CounterComponent },
+            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'slide', component: SlideComponent },
+            { path: '**', redirectTo: 'home' }
+            ])
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    CounterComponent,
+    FetchDataComponent,
+    NavMenuComponent,
+    HomeComponent,
+    SlideComponent
+  ],
+  providers: [
+    { provide: 'BASE_URL', useFactory: getBaseUrl }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function getBaseUrl() {
+    return document.getElementsByTagName('base')[0].href;
+}
