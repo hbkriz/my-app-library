@@ -1,4 +1,10 @@
-<h1>Weather forecast</h1>
+<br/>
+<nav class="breadcrumb">
+  <a class="breadcrumb-item" [routerLink]="['/home']">Home</a>
+  <span class="breadcrumb-item active">Fetch Data</span>
+</nav>
+
+<h1>Weather forecast <span class="badge badge-success">New</span></h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
@@ -11,6 +17,7 @@
             <th>Temp. (C)</th>
             <th>Temp. (F)</th>
             <th>Summary</th>
+            <th>Severity</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +26,26 @@
             <td>{{ forecast.temperatureC }}</td>
             <td>{{ forecast.temperatureF }}</td>
             <td>{{ forecast.summary }}</td>
+            <td>
+                <div class="alert alert-success" role="alert" *ngIf="forecast.temperatureC > 0 && forecast.temperatureC < 40">
+                Safe
+                </div>
+                <div class="alert alert-info" role="alert" *ngIf="forecast.temperatureC < 0">
+                Not Safe
+                </div>
+                <div class="alert alert-warning" role="alert" *ngIf="forecast.temperatureC >= 40 && forecast.temperatureC < 50">
+                Not Recommended
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="forecast.temperatureC >= 50">
+                Not Safe
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>
+ <footer class="footer">
+  <div class="container">
+    ...
+  </div>
+</footer> 
+
