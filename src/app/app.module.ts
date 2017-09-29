@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetchdata/fetchdata.component';
 import { NavMenuComponent } from './navmenu/navmenu.component';
 import { HomeComponent } from './home/home.component';
 import { SlideComponent } from './slide/slide.component';
+import { AboutComponent } from './about/about.component';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   imports: [
@@ -25,6 +27,7 @@ import { SlideComponent } from './slide/slide.component';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'slide', component: SlideComponent },
+            { path: 'about', component: AboutComponent },
             { path: '**', redirectTo: 'home' }
             ])
   ],
@@ -34,7 +37,9 @@ import { SlideComponent } from './slide/slide.component';
     FetchDataComponent,
     NavMenuComponent,
     HomeComponent,
-    SlideComponent
+    SlideComponent,
+    AboutComponent,
+    ChartComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl }
