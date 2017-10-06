@@ -37,8 +37,7 @@ import { AboutComponent } from './about/about.component';
     NavMenuComponent,
     HomeComponent,
     SlideComponent,
-    AboutComponent,
-    ChartComponent
+    AboutComponent
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl }
