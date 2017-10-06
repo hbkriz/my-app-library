@@ -13,7 +13,6 @@ import { NavMenuComponent } from './navmenu/navmenu.component';
 import { HomeComponent } from './home/home.component';
 import { SlideComponent } from './slide/slide.component';
 import { AboutComponent } from './about/about.component';
-import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   imports: [
